@@ -1,0 +1,19 @@
+{
+  "name": "worldofrorrim",
+  "version": "1.0.0",
+  "description": "[![Built on GitHub](https://github.com/reuixiy/io-oi.me/workflows/build/badge.svg)](https://github.com/reuixiy/io-oi.me/actions) [![Generator is Hugo](https://img.shields.io/badge/Generator-Hugo-ff4088?&logo=hugo)](https://github.com/gohugoio/hugo) [![Theme is MemE](https://img.shields.io/badge/Theme-MemE-2a6df4)](https://github.com/reuixiy/hugo-theme-meme)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/worldofrorrim/worldofrorrim.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/worldofrorrim/worldofrorrim.github.io/issues"
+  },
+  "homepage": "https://github.com/worldofrorrim/worldofrorrim.github.io#readme"
+}
