@@ -13,9 +13,9 @@ jobs:
 
     steps:
     - name: 'Building...'
-      uses: reuixiy/hugo-deploy@v1
+      uses: worldofrorrim/hugo-deploy@v1
       env:
-        DEPLOY_REPO: reuixiy/reuixiy.github.io
+        DEPLOY_REPO: worldofrorrim/worldofrorrim.github.io
         DEPLOY_BRANCH: build
         DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
