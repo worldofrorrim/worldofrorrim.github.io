@@ -1,6 +1,6 @@
 # worldofrorrim.github.io
 
-[![Built on GitHub](https://github.com/wroldofrorrim/worldofrorrim.github.io/workflows/build/badge.svg)](https://github.com/wroldofrorrim/worldofrorrim.github.io/actions)
+[![Built on GitHub](https://github.com/worldofrorrim/worldofrorrim.github.io/workflows/build/badge.svg)](https://github.com/wroldofrorrim/worldofrorrim.github.io/actions)
 [![Generator is Hugo](https://img.shields.io/badge/Generator-Hugo-ff4088?&logo=hugo)](https://github.com/gohugoio/hugo)
 [![Theme is MemE](https://img.shields.io/badge/Theme-MemE-2a6df4)](https://github.com/reuixiy/hugo-theme-meme)
 
