@@ -92,17 +92,17 @@ uglyURLs = false
 # 作者信息
 [author]
     # 名字
-    name = "reuixiy"
+    name = "worldofrorrim"
     # 邮箱
-    email = "reuixiy@gmail.com"
+    email = "worldofrorrim@gmail.com"
     # 座右铭或简介
     motto = "Viva La Vida"
     # 头像
     avatar = "/icons/apple-touch-icon.png"
     # 网站（默认值：baseURL）
-    website = "https://io-oi.me/"
+    website = "https://worldofrorrim.github.io/"
     # 推特
-    twitter = "reuixiy"
+    twitter = "worldofrorrim"
 
 # 相关文章
 [related]
@@ -1110,9 +1110,9 @@ uglyURLs = false
     #      的优先级高于此处
 
     # 仓库地址
-    repoURL = "https://github.com/reuixiy/io-oi.me"
+    repoURL = "https://github.com/worldofrorrim/worldofrorrim.github.io"
     # 编辑地址
-    repoEditURL = "https://github.com/reuixiy/io-oi.me/blob/master"
+    repoEditURL = "https://github.com/worldofrorrim/worldofrorrim.github.io/blob/master"
 
     # Git 的图标
     gitIcon = "code-branch"
