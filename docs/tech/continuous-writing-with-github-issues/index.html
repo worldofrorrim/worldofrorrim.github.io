@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+    <meta charset="UTF-8" />
+
+    <meta name="generator" content="Hugo 0.81.0" /><meta name="theme-color" content="#fff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <title>使用 GitHub Issues 持续写作 | Co-oC</title>
+
+    <link rel="stylesheet" href="/css/meme.min.css" />
+
+    
+    
+        <script src="/js/meme.min.js"></script>
+
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Cinzel&#43;Decorative:wght@700&amp;display=swap" media="print" onload="this.media='all'" />
+        <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Cinzel&#43;Decorative:wght@700&amp;display=swap" /></noscript>
+
+    <meta name="author" content="worldofrorrim" /><meta name="description" content="不知你是否会为写作而发愁？当你突然闪出一个好想法时，却没有写作的时间；当你坐在书桌前……" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#2a6df4" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Co-oC" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Co-oC" />
+    <meta name="msapplication-starturl" content="../../" />
+    <meta name="msapplication-TileColor" content="#fff" />
+    <meta name="msapplication-TileImage" content="../../icons/mstile-150x150.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    
+    
+
+    
+    <link rel="canonical" href="https://worldofrorrim.github.io/tech/continuous-writing-with-github-issues/" />
+    
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "datePublished": "2019-12-03T22:36:48+08:00",
+        "dateModified": "2021-02-24T01:11:11+08:00",
+        "url": "https://worldofrorrim.github.io/tech/continuous-writing-with-github-issues/",
+        "headline": "使用 GitHub Issues 持续写作",
+        "description": "不知你是否会为写作而发愁？当你突然闪出一个好想法时，却没有写作的时间；当你坐在书桌前……",
+        "inLanguage" : "zh-CN",
+        "articleSection": "tech",
+        "wordCount":  1861 ,
+        "image": "https://worldofrorrim.github.io/icons/apple-touch-icon.png",
+        "author": {
+            "@type": "Person",
+            "description": "Viva La Vida",
+            "email": "worldofrorrim@gmail.com",
+            "image": "https://worldofrorrim.github.io/icons/apple-touch-icon.png",
+            "url": "https://worldofrorrim.github.io/",
+            "name": "worldofrorrim"
+        },
+        "license": "在保留本文作者及本文链接的前提下，非商业用途随意转载分享。",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Co-oC",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://worldofrorrim.github.io/icons/apple-touch-icon.png"
+            },
+            "url": "https://worldofrorrim.github.io/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebSite",
+            "@id": "https://worldofrorrim.github.io/"
+        }
+    }
+</script>
+
+    
+
+<meta name="twitter:card" content="summary" />
+
+<meta name="twitter:site" content="@reuixiy" />
+<meta name="twitter:creator" content="@worldofrorrim" />
+
+    
+
+
+
+<meta property="og:title" content="使用 GitHub Issues 持续写作" />
+<meta property="og:description" content="不知你是否会为写作而发愁？当你突然闪出一个好想法时，却没有写作的时间；当你坐在书桌前……" />
+<meta property="og:url" content="https://worldofrorrim.github.io/tech/continuous-writing-with-github-issues/" />
+<meta property="og:site_name" content="Co-oC" />
+<meta property="og:locale" content="zh" /><meta property="og:image" content="https://worldofrorrim.github.io/icons/apple-touch-icon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2019-12-03T22:36:48&#43;08:00" />
+    <meta property="article:modified_time" content="2021-02-24T01:11:11&#43;08:00" />
+    
+    <meta property="article:section" content="tech" />
+
+
+        <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+
+        
+
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-100434861-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-100434861-1');
+    </script>
+
+
+
+
+    
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@700&amp;text=reuixiy&amp;display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@700&amp;text=reuixiy&amp;display=swap" /></noscript>
+
+</head>
+
+    <body>
+        <div class="container">
+            
+    <header class="header">
+        
+            <div class="header-wrapper">
+                <div class="header-inner single">
+                    
+    <div class="site-brand">
+        
+            <a href="/" class="brand">Co-oC</a>
+        
+    </div>
+
+                    <nav class="nav">
+    <ul class="menu" id="menu">
+        
+            
+        
+        
+        
+        
+            
+                <li class="menu-item"><a href="/life/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon life"><path d="M301.1 212c4.4 4.4 4.4 11.9 0 16.3l-9.7 9.7c-4.4 4.7-11.9 4.7-16.6 0l-10.5-10.5c-4.4-4.7-4.4-11.9 0-16.6l9.7-9.7c4.4-4.4 11.9-4.4 16.6 0l10.5 10.8zm-30.2-19.7c3-3 3-7.8 0-10.5-2.8-3-7.5-3-10.5 0-2.8 2.8-2.8 7.5 0 10.5 3.1 2.8 7.8 2.8 10.5 0zm-26 5.3c-3 2.8-3 7.5 0 10.2 2.8 3 7.5 3 10.5 0 2.8-2.8 2.8-7.5 0-10.2-3-3-7.7-3-10.5 0zm72.5-13.3c-19.9-14.4-33.8-43.2-11.9-68.1 21.6-24.9 40.7-17.2 59.8.8 11.9 11.3 29.3 24.9 17.2 48.2-12.5 23.5-45.1 33.2-65.1 19.1zm47.7-44.5c-8.9-10-23.3 6.9-15.5 16.1 7.4 9 32.1 2.4 15.5-16.1zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-66.2 42.6c2.5-16.1-20.2-16.6-25.2-25.7-13.6-24.1-27.7-36.8-54.5-30.4 11.6-8 23.5-6.1 23.5-6.1.3-6.4 0-13-9.4-24.9 3.9-12.5.3-22.4.3-22.4 15.5-8.6 26.8-24.4 29.1-43.2 3.6-31-18.8-59.2-49.8-62.8-22.1-2.5-43.7 7.7-54.3 25.7-23.2 40.1 1.4 70.9 22.4 81.4-14.4-1.4-34.3-11.9-40.1-34.3-6.6-25.7 2.8-49.8 8.9-61.4 0 0-4.4-5.8-8-8.9 0 0-13.8 0-24.6 5.3 11.9-15.2 25.2-14.4 25.2-14.4 0-6.4-.6-14.9-3.6-21.6-5.4-11-23.8-12.9-31.7 2.8.1-.2.3-.4.4-.5-5 11.9-1.1 55.9 16.9 87.2-2.5 1.4-9.1 6.1-13 10-21.6 9.7-56.2 60.3-56.2 60.3-28.2 10.8-77.2 50.9-70.6 79.7.3 3 1.4 5.5 3 7.5-2.8 2.2-5.5 5-8.3 8.3-11.9 13.8-5.3 35.2 17.7 24.4 15.8-7.2 29.6-20.2 36.3-30.4 0 0-5.5-5-16.3-4.4 27.7-6.6 34.3-9.4 46.2-9.1 8 3.9 8-34.3 8-34.3 0-14.7-2.2-31-11.1-41.5 12.5 12.2 29.1 32.7 28 60.6-.8 18.3-15.2 23-15.2 23-9.1 16.6-43.2 65.9-30.4 106 0 0-9.7-14.9-10.2-22.1-17.4 19.4-46.5 52.3-24.6 64.5 26.6 14.7 108.8-88.6 126.2-142.3 34.6-20.8 55.4-47.3 63.9-65 22 43.5 95.3 94.5 101.1 59z"/></svg><span class="menu-item-name">生活</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/tech/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon tech"><path d="M512 256c0 141.2-114.7 256-256 256C114.8 512 0 397.3 0 256S114.7 0 256 0s256 114.7 256 256zm-32 0c0-123.2-100.3-224-224-224C132.5 32 32 132.5 32 256s100.5 224 224 224 224-100.5 224-224zM160.9 124.6l86.9 37.1-37.1 86.9-86.9-37.1 37.1-86.9zm110 169.1l46.6 94h-14.6l-50-100-48.9 100h-14l51.1-106.9-22.3-9.4 6-14 68.6 29.1-6 14.3-16.5-7.1zm-11.8-116.3l68.6 29.4-29.4 68.3L230 246l29.1-68.6zm80.3 42.9l54.6 23.1-23.4 54.3-54.3-23.1 23.1-54.3z"/></svg><span class="menu-item-name">技术</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/about/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="icon about"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"/></svg><span class="menu-item-name">关于</span></a>
+                </li>
+            
+        
+            
+                
+                    
+                    
+                        <li class="menu-item">
+                            <a id="theme-switcher" href="#"><span class="icon theme-icon-light">🌞</span><span class="icon theme-icon-dark">🌙</span></a>
+                        </li>
+                    
+                
+            
+        
+            
+                
+                    
+                        
+                        
+                    
+                
+            
+        
+    </ul>
+</nav>
+
+                    
+                </div>
+            </div>
+            
+    <input type="checkbox" id="nav-toggle" aria-hidden="true" />
+    <label for="nav-toggle" class="nav-toggle"></label>
+    <label for="nav-toggle" class="nav-curtain"></label>
+
+
+        
+    </header>
+
+
+
+
+            
+            
+    <main class="main single" id="main">
+    <div class="main-inner">
+
+        
+
+        <article class="content post h-entry" data-align="justify" data-type="tech" data-toc-num="true">
+
+            <h1 class="post-title p-name">使用 GitHub Issues 持续写作</h1>
+
+            
+
+            
+                
+            
+
+            
+
+            <div class="post-body e-content">
+              <p style="text-indent:0"><span class="drop-cap">不</span>知你是否会为写作而发愁？当你突然闪出一个好想法时，却没有写作的时间；当你坐在书桌前准备写作时，却只有空空的无奈。在此，我激动地向你介绍一种现代的写作方式——使用 GitHub Issues <em class="emphasis-point">持续写作</em>！<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">[1]</a></sup></p>
+<hr>
+<p>什么是 GitHub Issues 呢？<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> 是全球著名的通过 Git 进行版本控制的软件源代码托管服务平台<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">[2]</a></sup>，而 <a href="https://help.github.com/en/github/managing-your-work-on-github/about-issues" target="_blank" rel="noopener">GitHub Issues</a> 则是一种用来管理 GitHub 上的工作项目中的各种想法、改进、任务或漏洞的追踪方式，目前的官方中文译名为「<a href="https://help.github.com/cn/github/managing-your-work-on-github/about-issues" target="_blank" rel="noopener">议题</a>」。</p>
+<p>什么是持续写作呢？持续写作是一种通过对想法的持续追踪、持续构建来协助写作的写作方式，英文为 Continuous Writing，简写为 CW。这是一个我自创的术语，由现代软件开发中的 <a href="https://www.redhat.com/zh/topics/devops/what-is-ci-cd" target="_blank" rel="noopener">CI/CD</a> 概念所激发。</p>
+<p>因此，文题「使用 GitHub Issues 持续写作」可以理解为使用 GitHub 的议题来对你的想法进行持续追踪、持续构建，从而促进你的写作。这种方式的巧妙之处就在于将现代的软件开发模式直接借用于写作，从而成就现代的写作模式。</p>
+<hr>
+<p>听起来可能会有点摸不着头脑，下面就以采用持续集成方式部署的博客为例，简单描述下这种现代的写作模式的具体流程：</p>
+<ol>
+<li>Eureka！闪出新想法！</li>
+<li>去 GitHub 新建一个议题，标题为文章名，描述为想法内容或文章纲要<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">[3]</a></sup>；</li>
+<li>时间匆忙，暂时搁置；</li>
+<li>Eureka！闪现这个想法的另一方面！</li>
+<li>打开 GitHub 上的该议题，在底部添加一条评论补充；</li>
+<li>重复 3、4、5；</li>
+<li>整理成一篇文章并自动发布；<a href="https://help.github.com/cn/github/managing-your-work-on-github/closing-issues-using-keywords" target="_blank" rel="noopener">自动关闭议题</a>。</li>
+</ol>
+<p>更棒的是，由于 GitHub 是一个网站，因此可以随时随地用手机编辑！这将会极大地促进并优质化写作，因为这利用了每一零碎时间，抓住了每一突发奇想，完善了文章的每一细节，进而解决了创作难的问题！以后我们出去溜达无聊时，就可以拿起手机，看看自己在 GitHub 上的议题列表，随时随地写作！相比于博客部署上的持续集成，这可以称为文章创作上的持续写作！现代的写作，也是持续化的！当你有了个想法，发个推特，可能就石沉大海了；但你新建个议题，就可以持续构建这个想法。这就避免了碎片化的知识，解决了现在流行的各种知识平台的弊端，深度化了知识，也许这可以称为 GitIdea。</p>
+<p>而且，GitHub Issues 是完全支持再编辑的，并能看到每个历史版本，这就日志化了文章的写作全过程。还有，GitHub Issues 还支持<a href="https://help.github.com/cn/github/managing-your-work-on-github/about-labels" target="_blank" rel="noopener">标签</a>，这意味着你可以分类组织你的所有想法；GitHub Issues 还支持<a href="https://help.github.com/cn/github/managing-your-work-on-github/pinning-an-issue-to-your-repository" target="_blank" rel="noopener">固定</a>，这意味着你可以置顶重要的想法；GitHub Issues 还支持<a href="https://help.github.com/cn/github/writing-on-github/basic-writing-and-formatting-syntax#referencing-issues-and-pull-requests" target="_blank" rel="noopener">引用</a>，这意味着你可以联系不同想法；GitHub Issues 还支持<a href="https://help.github.com/cn/github/managing-your-work-on-github/about-task-lists" target="_blank" rel="noopener">任务列表</a>，这意味着你可以管理文章的完成进度；GitHub Issues 还支持<a href="https://help.github.com/cn/github/managing-your-work-on-github/about-project-boards" target="_blank" rel="noopener">项目板</a>，这意味着你可以制定你的写作计划；GitHub Issues 还支持<a href="https://help.github.com/cn/github/managing-your-work-on-github/about-milestones" target="_blank" rel="noopener">里程碑</a>，这意味着你可以监督自己的写作进度。因此，这难道不是一个现代且完善的写作管理系统吗？</p>
+<p>还有，GitHub Issues 还是一个现代的笔记系统！除了支持手机方便编辑，除了上面所说的各种现代特点，它还支持 Markdown！读书笔记、课堂笔记、电影感悟……直接新建一个仓库，然后开始 Issue 即可！相比一条说说或一条朋友圈，这能够持续追踪你的各种记录，不仅避免了碎片化知识，甚至还可能汇聚成一个属于自己的体系！更重要的是，GitHub Issues 是基于网页的，这非常利于传播！想法的价值在于传播，使用 GitHub Issues，轻松方便地分享和传播你的想法！GitHub 的仓库还支持<a href="https://help.github.com/cn/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories" target="_blank" rel="noopener">关注</a>，且有邮件通知！此外，还可以使用 <a href="https://docs.rsshub.app/en/programming.html#repo-issues" target="_blank" rel="noopener">RSSHub</a> 通过 RSS 来订阅 Issues！这意味着你完全可以新建一个仓库，然后将 GitHub Issues 当 Microblog 来用，什么朋友圈、空间、微博、推特、TG 频道都弱爆了！这是一种全新的记录方式！这是一种现代的记录方式！</p>
+<hr>
+<p>此外，上面讲的只是使用 GitHub Issues 来管理并持续追踪你的<em class="emphasis-point">想法</em>。如果你还使用 GitHub 来管理自己写好的<em class="emphasis-point">文章</em>，并使用持续集成的方式发布文章，那么这就彻底持续化了写作，也许这就可以称为<em class="emphasis-point">广义持续写作</em>。下面继续采用上方的例子，简单描述下广义持续写作的剩余流程：</p>
+<ol start="8">
+<li>闪现新方面或自己发现错误╱读者反馈；</li>
+<li>自己重开议题并添加评论╱前往 GitHub 新建一个议题供讨论；</li>
+<li>改正文章内容并自动发布；<a href="https://help.github.com/cn/github/writing-on-github/basic-writing-and-formatting-syntax#referencing-issues-and-pull-requests" target="_blank" rel="noopener">引用议题</a>╱<a href="https://help.github.com/cn/github/managing-your-work-on-github/closing-issues-using-keywords" target="_blank" rel="noopener">自动关闭议题</a>。</li>
+</ol>
+<p>这意味着什么呢？这意味着你的文章从开始的一个想法到后来的一篇文章再到未来的一篇完美文章都是完全日志化的！你可以回顾文章的完整写作历史！最后，由于我们使用的是 GitHub，我们就直接享有了开源模式的优势——可以汇聚人人的力量，多人持续写作！🛸</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>说明：本文即采用持续写作的方式创作并发布，见 <a href="https://github.com/reuixiy/io-oi.me/issues/10" target="_blank" rel="noopener">#10</a>。 <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>来源：<a href="https://zh.wikipedia.org/wiki/GitHub" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/GitHub</a><br>
+科普：<a href="https://www.zhihu.com/question/20070065/answer/79557687" target="_blank" rel="noopener">https://www.zhihu.com/question/20070065/answer/79557687</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>因为想法刚出来时大脑比较活跃，想得比较全面，不片面。 <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+            </div>
+
+            
+
+
+        </article>
+
+        
+
+        
+
+
+        
+
+
+        
+
+
+        
+
+
+        
+
+
+        
+    <footer class="minimal-footer">
+        
+            <div class="post-tag"><a href="/tags/blogging/" rel="tag" class="post-tag-link">#blogging</a> <a href="/tags/foss/" rel="tag" class="post-tag-link">#foss</a> <a href="/tags/ideas/" rel="tag" class="post-tag-link">#ideas</a></div>
+        
+        
+            <div class="post-category">
+                <a href="/tech/" class="post-category-link active">tech</a> | <a href="/life/" class="post-category-link">life</a>
+            </div>
+        
+        
+    </footer>
+
+
+
+        
+
+
+        
+
+
+        
+
+
+    </div>
+</main>
+
+
+            
+
+            
+
+        </div>
+        <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('\/sw.js');
+            });
+        }
+    </script>
+
+
+        
+
+
+
+
+
+
+
+
+    <script src="/js/medium-zoom.min.js"></script>
+
+<script>
+    mediumZoom(document.querySelectorAll('div.post-body img'), {
+        background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
+    })
+</script>
+
+
+
+
+
+
+
+
+
+    </body>
+</html>
