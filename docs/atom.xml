@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">Co-oC</title>
     <subtitle type="html">这是 reuixiy 的生活与技术博客！怎么记住 reuixiy 呢？其实就是「一休儿」的拼音，只不过顺序是从右往左……</subtitle>
-    <updated>2021-03-06T17:58:35&#43;08:00</updated>
+    <updated>2021-03-06T22:25:34&#43;08:00</updated>
     <id>https://worldofrorrim.github.io/</id>
     <link rel="alternate" type="text/html" href="https://worldofrorrim.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://worldofrorrim.github.io/atom.xml" />
@@ -16,6 +16,208 @@
             </author>
     <rights>在保留本文作者及本文链接的前提下，非商业用途随意转载分享。</rights>
     <generator uri="https://gohugo.io/" version="0.81.0">Hugo</generator>
+        <entry>
+            <title type="text">Rorrim的简历</title>
+            <link rel="alternate" type="text/html" href="https://worldofrorrim.github.io/tech/me-me/" />
+            <id>https://worldofrorrim.github.io/tech/me-me/</id>
+            <updated>2021-03-06T21:59:53&#43;08:00</updated>
+            <published>2021-03-06T18:24:56&#43;08:00</published>
+            <author>
+                    <name>worldofrorrim</name>
+                    <uri>https://worldofrorrim.github.io/</uri>
+                    <email>worldofrorrim@gmail.com</email>
+                    </author>
+            <rights>在保留本文作者及本文链接的前提下，非商业用途随意转载分享。</rights><summary type="html">『联系方式』 手机：15669090286 （杭州） Email：worldofrorri……</summary>
+            
+                <content type="html">&lt;h2 id=&#34;联系方式&#34;&gt;『联系方式』&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;手机：15669090286 （杭州）&lt;/li&gt;
+&lt;li&gt;Email：worldofrorrim@gmail.com&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;个人信息&#34;&gt;『个人信息』&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;焦俊(rorrim)/男/1983&lt;/li&gt;
+&lt;li&gt;本科/渭南师范学院计算机系&lt;/li&gt;
+&lt;li&gt;工作年限：10年以上&lt;/li&gt;
+&lt;li&gt;技术博客：http://worldofrorrim.github.io&lt;/li&gt;
+&lt;li&gt;Github：http://github.com/worldofrorrim&lt;/li&gt;
+&lt;li&gt;期望职位：技术经理,应用架构师,CTO&lt;/li&gt;
+&lt;li&gt;期望薪资：税前月薪35k~40k，特别喜欢的公司可例外&lt;/li&gt;
+&lt;li&gt;期望城市：西安&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;工作经历&#34;&gt;『工作经历』&lt;/h2&gt;
+&lt;h3 id=&#34;浙江鹭栖科技20175--至今&#34;&gt;「浙江鹭栖科技」(2017.5 ~ 至今)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;工作概况&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​    担任DT数据开发部经理一职,部门主要分为实施组,开发组,研发组,负责项目任务的完成,人员的管理,产品的研发,第三方部门协作等工作,直接向老板进行工作汇报。&lt;/p&gt;
+&lt;p&gt;​    2017年和2018年间负责公司数据类项目的管理，数据实施运维人员以及数据开发人员的管理。带领部门完成了浙江省政府，滨江区政府，宁波市政府，衢州市政府、杭州市国土、杭州卫计委、以及下城区政府等众多数据类项目的设计开发、测试、部署、实施以及验收和管理工作。&lt;/p&gt;
+&lt;p&gt;​    2019年开始重点专注数据类、IM类、非标准任务工单、合作公司评价、日志数据管理、统一用户等产品的研发及部门管理。带领研发人员在完成众多项目开发任务的前提下，完成了数据管理平台的产品化，包括，数据编目管理，数据清单管理，数据交换工单，数据智能交换，数据清洗，数据共享，数据分析可视化等系统和平台；完成了IM系统的产品化，包括IM的前后端分离，IM的可扩展机器人，IM的大群机器人，微信机器人，QQ机器人，钉钉机器人，打卡机器人、工单机器人等模块的设计和开发；完成了1DO非标准任务工单、日志数据管理、统一用户等系统的产品化以及“多租户云化”。&lt;/p&gt;
+&lt;p&gt;​    4年间,还带领团队完成了包括杭州市亲清平台政策兑现系统，杭州市城市大脑下城平台，浙江省体育局，石家庄裕华区疫情管理、下城区疫情数据管理、石家庄裕华区一户一档，下城区图影红云，下城区区块链服务平台（BSN）数据上链等项目任务的开发和实施部署。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;工作领域&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据交换&lt;/li&gt;
+&lt;li&gt;数据管理&lt;/li&gt;
+&lt;li&gt;可视化分析&lt;/li&gt;
+&lt;li&gt;IM&lt;/li&gt;
+&lt;li&gt;区块链&lt;/li&gt;
+&lt;li&gt;ETL&lt;/li&gt;
+&lt;li&gt;消息&lt;/li&gt;
+&lt;li&gt;流式计算&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;组织分工&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;项目实施小组&lt;/li&gt;
+&lt;li&gt;数据类项目开发小组&lt;/li&gt;
+&lt;li&gt;业务类项目开发小组&lt;/li&gt;
+&lt;li&gt;产品研发小组&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;管理方面&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;管理流程&lt;/li&gt;
+&lt;li&gt;新工具引入&lt;/li&gt;
+&lt;li&gt;新技术引入&lt;/li&gt;
+&lt;li&gt;人员培训&lt;/li&gt;
+&lt;li&gt;人员考核&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;协作方面&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第三方部门&lt;/li&gt;
+&lt;li&gt;第三方公司&lt;/li&gt;
+&lt;li&gt;部门内部&lt;/li&gt;
+&lt;li&gt;公司领导&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;技术预研和产品化&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;统一用户&lt;/li&gt;
+&lt;li&gt;多租户技术&lt;/li&gt;
+&lt;li&gt;区块链技术&lt;/li&gt;
+&lt;li&gt;IM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;上海东方通泰20139--20174&#34;&gt;「上海东方通泰」(2013.9 ~ 2017.4)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;工作概况&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;担任数据技术支持工程师,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;工作领域&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;组织分工&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;管理方面&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;协作技巧&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;技术产品&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;上海用友政务--2010年3月--2013年8月-&#34;&gt;「上海用友政务」 （ 2010年3月 ~ 2013年8月 ）&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;工作概况&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​    担任Java开发工程师,部门为A++开发部,向部门经理进行工作汇报。主要负责带领项目开发小组在用友A++开发平台完成上海市财政局,上海市统计局,浦东财政局,长宁动迁房源等项目开发,运维和A++平台本身的开发和维护.&lt;/p&gt;
+&lt;p&gt;​    完成了上海市财政局的授权支付,国库集中支付,上海市统计局的综合查询以及浦东财政局的国库集中支付等项目和系统的开发,测试以及后续迭代运维。&lt;/p&gt;
+&lt;p&gt;​    完成了长宁区动迁房源系统的设计开发、测试部署上线及后期运维。&lt;/p&gt;
+&lt;p&gt;​    完成了A++平台本身存在的100多个bug的修复以及优化。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;工作领域&lt;/p&gt;
+&lt;p&gt;主要工作领域为国库集中支付系统、授权支付等财政类系统和部分用友A++平台的维护优化。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;组织分工&lt;/p&gt;
+&lt;p&gt;带领4人小组（包括1名实施人员，2名开发人员），直接在客户现场和客户进行直接需求的沟通确认，页面设计，技术选型，架构设计后制定开发实施计划开展工作。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;管理方面&lt;/p&gt;
+&lt;p&gt;前期需求沟通、设计过程中的及时反馈、以及制定计划时的组织协调是项目完成的关键。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;协作技巧&lt;/p&gt;
+&lt;p&gt;静下来，慢下来是良好沟通和协作的前提，有时，慢其实就是快...&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;技术产品&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​    用友A++以“平台化应用集成、精细化管控、定向化服务”的管理业务理念，基于先进的具有自主知识产权的G－MAP技术开发平台，融合智能表单、工作流、移动通信、SOA等先进技术、架构，基于精细化的项目、Portal门户等应用思想设计开发。实现了“平台化、部件化、个性化”的柔性软件系统。胜任各种安全和应用需要。国内率先支持财政部“金财工程”应用支撑平台和最新《行政事业单位会计核算软件数据接口》国标应用。&lt;/p&gt;
+&lt;p&gt;​    经过多年的努力，A++已经发展成为覆盖政府财政及主管部门财务业务一体化的应用信息系统解决方案提供者。 采用平台一体化设计理念架构的A++系列产品主要包括：部门预算管理、办公自动化系统、国库管理、资产管理、财务监管、领导决策支持系统等专用业务处理应用系统和信息采集、交换、发布等相关的公共信息处理系统。全面覆盖了财政及政府财务的资金、资产、资源的全部过程管理。具有技术前瞻、业务模式领先、安全可靠、适用的特点，符合中国电子政务未来发展的方向。&lt;/p&gt;
+&lt;h2 id=&#34;技能清单&#34;&gt;『技能清单』&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;测试&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;其他&#34;&gt;『其他』&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;开源项目
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://github.com/yourname/projectname&#34;&gt;STU&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://github.com/yourname/projectname&#34;&gt;WXYZ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;技术文章
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://get.jobdeer.com/706.get&#34;&gt;一个产品经理眼中的云计算：前生今世和未来&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://get.jobdeer.com/343.get&#34;&gt;来自HeroKu的HTTP API 设计指南(翻译文章)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;演讲和讲义
+&lt;ul&gt;
+&lt;li&gt;2014架构师大会演讲：&lt;a href=&#34;http://ftqq.com&#34;&gt;如何通过Docker优化内部开发&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;9月公司内部分享：&lt;a href=&#34;http://ftqq.com&#34;&gt;云计算的前生今世&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;致谢&#34;&gt;『致谢』&lt;/h2&gt;
+&lt;p&gt;感谢您花时间阅读我的简历，期待能有机会和您共事。&lt;/p&gt;
+</content>
+            
+            
+            
+                
+                
+                
+                    
+                    
+                    
+                        
+                            <category scheme="https://worldofrorrim.github.io/tech/" term="tech\" label="tech\" />
+                        
+                    
+                
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://worldofrorrim.github.io/tags/myinfo/" term="MyInfo" label="MyInfo" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">积木与线团</title>
             <link rel="alternate" type="text/html" href="https://worldofrorrim.github.io/tech/aspects/" />
