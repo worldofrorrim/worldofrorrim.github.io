@@ -2,7 +2,7 @@
 # 站点配置
 
 baseURL = "https://worldofrorrim.github.io/"
-publishDir = "docs"
+publishDir = "public"
 title = "Co-oC"
 languageCode = "zh-CN"
 hasCJKLanguage = true

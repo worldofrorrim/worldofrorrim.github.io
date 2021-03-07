@@ -1,44 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-
-
-
-
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Co-oC</title>
-        <link>https://worldofrorrim.github.io/</link>
-        <description>这是 reuixiy 的生活与技术博客！怎么记住 reuixiy 呢？其实就是「一休儿」的拼音，只不过顺序是从右往左……</description>
-        <generator>Hugo 0.81.0 https://gohugo.io/</generator>
-        
-            <language>zh-CN</language>
-        
-        
-            <managingEditor>worldofrorrim@gmail.com (worldofrorrim)</managingEditor>
-        
-        
-            <webMaster>worldofrorrim@gmail.com (worldofrorrim)</webMaster>
-        
-        
-            <copyright>在保留本文作者及本文链接的前提下，非商业用途随意转载分享。</copyright>
-        
-        <lastBuildDate>Sun, 07 Mar 2021 16:05:14 &#43;0800</lastBuildDate>
-        
-            <atom:link rel="self" type="application/rss&#43;xml" href="https://worldofrorrim.github.io/rss.xml" />
-        
-        
-            <item>
-                <title>积木与线团</title>
-                <link>https://worldofrorrim.github.io/tech/aspects/</link>
-                <guid isPermaLink="true">https://worldofrorrim.github.io/tech/aspects/</guid>
-                <pubDate>Fri, 25 Dec 2020 10:56:56 &#43;0800</pubDate>
-                
-                    <author>worldofrorrim@gmail.com (worldofrorrim)</author>
-                
-                <copyright>在保留本文作者及本文链接的前提下，非商业用途随意转载分享。</copyright>
-                
-                    <description>&lt;p&gt;作为一个现代的码农，我们难免要使用别人的脚手架，一是因为避免闭门造轮子，二是因为我们还不会造轮子。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
+    <title type="text">Co-oC</title>
+    <subtitle type="html">这是 reuixiy 的生活与技术博客！怎么记住 reuixiy 呢？其实就是「一休儿」的拼音，只不过顺序是从右往左……</subtitle>
+    <updated>2021-03-07T16:06:29&#43;08:00</updated>
+    <id>https://worldofrorrim.github.io/</id>
+    <link rel="alternate" type="text/html" href="https://worldofrorrim.github.io/" />
+    <link rel="self" type="application/atom&#43;xml" href="https://worldofrorrim.github.io/atom.xml" />
+    <author>
+            <name>worldofrorrim</name>
+            <uri>https://worldofrorrim.github.io/</uri>
+            
+                <email>worldofrorrim@gmail.com</email>
+            </author>
+    <rights>在保留本文作者及本文链接的前提下，非商业用途随意转载分享。</rights>
+    <generator uri="https://gohugo.io/" version="0.81.0">Hugo</generator>
+        <entry>
+            <title type="text">积木与线团</title>
+            <link rel="alternate" type="text/html" href="https://worldofrorrim.github.io/tech/aspects/" />
+            <id>https://worldofrorrim.github.io/tech/aspects/</id>
+            <updated>2021-02-24T01:11:11&#43;08:00</updated>
+            <published>2020-12-25T10:56:56&#43;08:00</published>
+            <author>
+                    <name>worldofrorrim</name>
+                    <uri>https://worldofrorrim.github.io/</uri>
+                    <email>worldofrorrim@gmail.com</email>
+                    </author>
+            <rights>在保留本文作者及本文链接的前提下，非商业用途随意转载分享。</rights><summary type="html">作为一个现代的码农，我们难免要使用别人的脚手架，一是因为避免闭门造轮子，二是因为我们……</summary>
+            
+                <content type="html">&lt;p&gt;作为一个现代的码农，我们难免要使用别人的脚手架，一是因为避免闭门造轮子，二是因为我们还不会造轮子。&lt;/p&gt;
 &lt;p&gt;一开始，我们在其基础上添加自己的业务逻辑；到最后，我们必须剔除我们不需要的多余代码。这时候，有两种方式：一种是渐近的剥洋葱，即移除不需要的；一种是清爽的一锅端，即保留只需要的。也就是前者的取反。&lt;/p&gt;
 &lt;p&gt;管理者和开发者的观点往往是不一样甚至完全相反的。管理者肯定会倾向第一种，因为这将大事变小，小步快跑，能够保证软件的稳定迭代，同时保证项目的其它进程。开发者肯定会倾向第二种，因为对于其来说，需剥离的代码比需保留的代码要多得多，这意味着会增加很多「不必要」的工作量。&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;https://worldofrorrim.github.io/tech/aspects/#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;p&gt;当然，码农的真实心理可能是：哪些代码是不需要的呢？能够直接做到仅移除不需要的，还需要在这讨论吗？&lt;/p&gt;
@@ -62,7 +53,10 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
-</description>
+</content>
+            
+            
+            
                 
                 
                 
@@ -70,53 +64,53 @@
                     
                     
                         
-                        
-                        
-                            
-                                <category domain="https://worldofrorrim.github.io/tech/">tech\</category>
-                            
+                            <category scheme="https://worldofrorrim.github.io/tech/" term="tech\" label="tech\" />
                         
                     
                 
-                
+            
+            
+            
                 
                     
                         
                             
-                                
-                                
-                                
-                                    <category domain="https://worldofrorrim.github.io/tags/ideas/">ideas</category>
-                                
                             
-                                
-                                
-                                
-                                    <category domain="https://worldofrorrim.github.io/tags/software/">software</category>
-                                
                             
-                                
-                                
-                                
-                                    <category domain="https://worldofrorrim.github.io/tags/philosophy/">philosophy</category>
-                                
+                                <category scheme="https://worldofrorrim.github.io/tags/ideas/" term="ideas" label="ideas" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://worldofrorrim.github.io/tags/software/" term="software" label="software" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://worldofrorrim.github.io/tags/philosophy/" term="philosophy" label="philosophy" />
                             
                         
                     
                 
-            </item>
-        
-            <item>
-                <title>《冰与火之歌》</title>
-                <link>https://worldofrorrim.github.io/life/a-song-of-ice-and-fire/</link>
-                <guid isPermaLink="true">https://worldofrorrim.github.io/life/a-song-of-ice-and-fire/</guid>
-                <pubDate>Thu, 11 Jan 2018 18:17:54 &#43;0800</pubDate>
-                
-                    <author>worldofrorrim@gmail.com (worldofrorrim)</author>
-                
-                <copyright>在保留本文作者及本文链接的前提下，非商业用途随意转载分享。</copyright>
-                
-                    <description>&lt;p&gt;&lt;img src=&#34;https://worldofrorrim.github.io/images/a-song-of-ice-and-fire-title.png&#34; alt=&#34;a-song-of-ice-and-fire-title.png&#34; title=&#34;Kindle 截图&#34;&gt;&lt;/p&gt;
+            
+        </entry>
+    
+        <entry>
+            <title type="text">《冰与火之歌》</title>
+            <link rel="alternate" type="text/html" href="https://worldofrorrim.github.io/life/a-song-of-ice-and-fire/" />
+            <id>https://worldofrorrim.github.io/life/a-song-of-ice-and-fire/</id>
+            <updated>2021-02-24T01:11:11&#43;08:00</updated>
+            <published>2018-01-11T18:17:54&#43;08:00</published>
+            <author>
+                    <name>worldofrorrim</name>
+                    <uri>https://worldofrorrim.github.io/</uri>
+                    <email>worldofrorrim@gmail.com</email>
+                    </author>
+            <rights>在保留本文作者及本文链接的前提下，非商业用途随意转载分享。</rights><summary type="html">Winter is coming... Winter is here.</summary>
+            
+                <content type="html">&lt;p&gt;&lt;img src=&#34;https://worldofrorrim.github.io/images/a-song-of-ice-and-fire-title.png&#34; alt=&#34;a-song-of-ice-and-fire-title.png&#34; title=&#34;Kindle 截图&#34;&gt;&lt;/p&gt;
 &lt;p&gt;将近两个月看完《冰与火之歌》五卷：权力的游戏、列王的纷争、冰雪的风暴、群鸦的盛宴、魔龙的狂舞。拼命把溜出来的肠子塞回肚子里，乌鸦啄食着被钉城墙上蛆虫蠕动的头颅，动不动就调情啪啪啪还啊啊啊……&lt;/p&gt;
 &lt;p&gt;眼睁睁看着自认为的主角一个又一个的突然变成了群鸦的盛宴，一个又一个人物的眼睛才看清列王的纷争，一个又一个人物的嘴与心的谎言才看清权力的游戏，而这一个又一个人物却都是自己！冰雪的风暴与魔龙的狂舞却在自己的脑阔中同时上演，自己的脑阔在冰与火之歌中冲突到爆炸！&lt;/p&gt;
 &lt;p&gt;经历过《神曲》地狱到天堂的过去之旅，遨游过「阿西莫夫」那浩瀚无垠的未来宇宙，体会过《浮士德》对理想的渴望，享受过「尼采」那日神阿波罗的至高喜悦和酒神狄俄尼索斯的狂欢，歌唱过 Coldplay 那生命无上，却第一次在《冰与火之歌》谎言的游戏中爆炸！&lt;/p&gt;
@@ -128,7 +122,10 @@
 可那是谎言&lt;br&gt;
 这不是谎言&lt;br&gt;
 这就是权力的游戏&lt;/p&gt;
-</description>
+</content>
+            
+            
+            
                 
                 
                 
@@ -136,35 +133,31 @@
                     
                     
                         
+                            <category scheme="https://worldofrorrim.github.io/life/" term="life\" label="life\" />
                         
+                    
+                
+            
+            
+            
+                
+                    
                         
                             
-                                <category domain="https://worldofrorrim.github.io/life/">life\</category>
+                            
+                            
+                                <category scheme="https://worldofrorrim.github.io/tags/reading/" term="reading" label="reading" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://worldofrorrim.github.io/tags/poetry/" term="poetry" label="poetry" />
                             
                         
                     
                 
-                
-                
-                    
-                        
-                            
-                                
-                                
-                                
-                                    <category domain="https://worldofrorrim.github.io/tags/reading/">reading</category>
-                                
-                            
-                                
-                                
-                                
-                                    <category domain="https://worldofrorrim.github.io/tags/poetry/">poetry</category>
-                                
-                            
-                        
-                    
-                
-            </item>
-        
-    </channel>
-</rss>
+            
+        </entry>
+    
+</feed>
