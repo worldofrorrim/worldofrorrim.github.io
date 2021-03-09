@@ -63,7 +63,7 @@ Linux系统用户可通过在Terminal中执行命令`arch`(即`uname -m`)来查�
 
 ### Mac 安装
 
-访问[下载地址][https://golang.org/dl/] ，64位系统下载 go1.14.7.darwin-amd64.pkg，双击下载文件，一路默认安装点击下一步，这个时候go已经安装到你的系统中，默认已经在PATH中增加了相应的`~/go/bin`, 这个时候打开终端，输入`go`
+访问[下载地址](https://golang.org/dl/) ，64位系统下载 go1.14.7.darwin-amd64.pkg，双击下载文件，一路默认安装点击下一步，这个时候go已经安装到你的系统中，默认已经在PATH中增加了相应的`~/go/bin`, 这个时候打开终端，输入`go`
 32位系统下载go1.4.2.darwin-386-osx10.8.pkg( 新的版本已无32位下载 )
 
 ![](https://github.com/worldofrorrim/build-web-application-with-golang/blob/master/zh/images/1.1.mac.png?raw=true)
@@ -74,7 +74,7 @@ Linux系统用户可通过在Terminal中执行命令`arch`(即`uname -m`)来查�
 
 ### Linux 安装
 
-访问[下载地址][https://golang.org/dl/] ,64位系统下载go1.14.7.linux-amd64.tar.gz，32位系统下载go1.14.7.linux-386.tar.gz，
+访问[下载地址](https://golang.org/dl/) ,64位系统下载go1.14.7.linux-amd64.tar.gz，32位系统下载go1.14.7.linux-386.tar.gz，
 
 直接使用 `tar -C /usr/local -xzf go1.4.7.linux-amd64.tar.gz` 解压到 local 目录
 设置PATH，`export PATH=$PATH:/usr/local/go/bin`
@@ -94,7 +94,7 @@ Linux系统用户可通过在Terminal中执行命令`arch`(即`uname -m`)来查�
 
 ### Windows 安装 ###
 
-访问[下载地址][https://golang.org/dl/]，64 位请选择名称中包含 windows-amd64 的, 32 位请选择名称中包含 windows-386 的 msi 安装包。下载好后运行，不要修改默认安装目录 C:\Go\，若安装到其他位置会导致不能执行自己所编写的 Go 代码。安装完成后默认会在环境变量 Path 后添加 Go 安装目录下的 bin 目录 `C:\Go\bin\`，并添加环境变量 GOROOT，值为 Go 安装根目录 `C:\Go\` 。
+访问[下载地址](https://golang.org/dl/)，64 位请选择名称中包含 windows-amd64 的, 32 位请选择名称中包含 windows-386 的 msi 安装包。下载好后运行，不要修改默认安装目录 C:\Go\，若安装到其他位置会导致不能执行自己所编写的 Go 代码。安装完成后默认会在环境变量 Path 后添加 Go 安装目录下的 bin 目录 `C:\Go\bin\`，并添加环境变量 GOROOT，值为 Go 安装根目录 `C:\Go\` 。
 
 **验证是否安装成功**
 
@@ -202,7 +202,7 @@ $ scoop search go
 $ scoop install go  
 ```
 
-安装完成后，环境变量就自动配置好了,输入`go version`查看当前安装的版本，也可以使用`scoop install go@1.14.3`安装指定的版本，`scoop uninstall go`可以删除安装包
+安装完成后，输入`go version`查看当前安装的版本，也可以使用`scoop install go@1.14.3`安装指定的版本，`scoop uninstall go`可以删除安装包
 
 ## Go源码安装
 
