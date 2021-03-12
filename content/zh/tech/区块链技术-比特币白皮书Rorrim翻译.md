@@ -30,13 +30,17 @@ indent = true
 
 ---
 
+Commerce on the Internet has come to rely almost exclusively on financial institutions serving as trusted third parties to process electronic payments.While the system works well enough for most transactions,it still suffers from the inherent weaknesses of the trust based model.Completely non-reversible transactions are not really possible,since financial institutions cannot avoid mediating disputes.The cost of mediation increases transaction costs，limiting the minimum practical transaction size and cutting off the possibility for small casual transactions,and there is a broader cost in the loss of ability to make non-reversible payments for non-reversible services.With the possibility of reversal, the need for trust spreads. Merchants must be wary of their customers, hassling them for more information than they would otherwise need. A certain percentage of fraud is accepted as unavoidable. These costs and payment uncertainties can be avoided in person by using physical currency, but no mechanism exists to make payments over a communications channel without a trusted party.
 
+What is needed is an electronic payment system based on cryptographic proof instead of trust, allowing any two willing parties to transact directly with each other without the need for a trusted third party. Transactions that are computationally impractical to reverse would protect sellers from fraud, and routine escrow mechanisms could easily be implemented to protect buyers. In this paper, we propose a solution to the double-spending problem using a peer-to-peer distributed timestamp server to generate computational proof of the chronological order of transactions. The system is secure as long as honest nodes collectively control more CPU power than any cooperating group of attacker nodes.
 
 ## 2. 交易（Transactions）
 
 ---
 
+互联网上的商业几乎完全依赖作为可信第三方的金融机构处理电子支付。虽然对于绝大多数交易来说，这个系统运行良好。但是，它仍旧存在基于信任的模型的固有缺点。完全不可逆的交易实际上是不可能的，因为金融机构无法避免仲裁争议。仲裁成本增加了交易的成本，限制了最低实际交易规模，切断了小额临时交易的可能性，并且失去为不可逆服务支付不可逆款项的能力，这带来了更大的成本。随着逆转的可能性，对信任的需求蔓延开来。商人必须提防着他们的顾客，向他们索取比他们原本需要的更多的信息。一定比例的欺诈，被认为是不可避免的。这些成本和支付的不确定性，虽然在人与人之间直接使用物理货币支付的时候是可以避免的；但没有任何一个机制能在没有可信方的情况下通过通信渠道进行支付。
 
+我们需要的是一个基于密码证明而不是信任的电子支付系统，允许任何愿意的双方直接相互交易，而不需要可信的第三方。计算上不切实际的逆转交易将保护卖方免受欺诈，常规托管机制可以很容易地实施以保护买方。在本论文中，我们提出了一种使用对等分布式时间戳服务器生成交易时间顺序的计算证明的双重支出问题的解决方案，只要诚实节点集体控制比任何合作的攻击者节点组掌握更多的 CPU 算力，此系统就是安全的，
 
 ## 3. 时间戳服务器（Timestamp Servrer）
 
