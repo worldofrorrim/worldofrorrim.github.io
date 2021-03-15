@@ -44,11 +44,11 @@ What is needed is an electronic payment system based on cryptographic proof inst
 
 We define an electronic coin as a chain of digital signatures. Each owner transfers the coin to the next by digitally signing a hash of the previous transaction and the public key of the next owner and adding these to the end of the coin. A payee can verify the signatures to verify the chain of ownership.
 
-![](transactions-en.jpg)
+![](https://github.com/worldofrorrim/worldofrorrim.github.io/blob/master/static/images/transaction-en.jpg?raw=true)
 
 我们将电子硬币定义为数字签名链。每个所有者通过对上一次交易的哈希和下一个所有者的公钥进行数字签名，并将这些添加到硬币的末尾, 将硬币转移到下一个所有者手中。收款人可以验证签名以验证所有权链。
 
-![](transactions.svg)
+![](https://github.com/worldofrorrim/worldofrorrim.github.io/blob/master/static/images/transactions.svg?raw=true)
 
 The problem of course is the payee can't verify that one of the owners did not double-spend the coin. A common solution is to introduce a trusted central authority, or mint, that checks every transaction for double spending. After each transaction, the coin must be returned to the mint to issue a new coin, and only coins issued directly from the mint are trusted not to be double-spent. The problem with this solution is that the fate of the entire money system depends on the company running the mint, with every transaction having to go through them, just like a bank.
 
@@ -63,11 +63,11 @@ We need a way for the payee to know that the previous owners did not sign any ea
 ---
 The solution we propose begins with a timestamp server. A timestamp server works by taking a hash of a block of items to be timestamped and widely publishing the hash, such as in a newspaper or Usenet post[^2] [^3] [^4] [^5]. The timestamp proves that the data must have existed at the time, obviously, in order to get into the hash. Each timestamp includes the previous timestamp in its hash, forming a chain, with each additional timestamp reinforcing the ones before it.
 
-![](timestamp-serve-en.jpg)
+![](https://github.com/worldofrorrim/worldofrorrim.github.io/blob/master/static/images/timestamp-server-en.jpg?raw=true)
 
 我们提出的解决方案开始于时间戳服务器。时间戳服务器的工作原理是对要打时间戳的记录块进行散列，并广泛发布(就像在报纸或新闻组帖子一样[^2] [^3] [^4] [^5])散列。显然，时间戳能够证明那数据在那个时间点已然存在，否则那哈希也就无法生成。每个时间戳在其哈希中包含着前一个的时间戳，从而形成了一个链条，每一个新加入的时间戳都会增强之前的时间戳。
 
-![](timestamp-server.svg)
+![](https://github.com/worldofrorrim/worldofrorrim.github.io/blob/master/static/images/timestamp-server.svg?raw=true)
 
 
 ## 4.工作证明（Proof-of-Work）
