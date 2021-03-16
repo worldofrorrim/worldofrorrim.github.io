@@ -74,6 +74,18 @@ The solution we propose begins with a timestamp server. A timestamp server works
 
 ---
 
+To implement a distributed timestamp server on a peer-to-peer basis,we will need to use a proof-of-work system similar to Adam Back's Hashcash [^6],rather than newspaper or Usenet posts.The proof-of-work involves scanning for a value that when hashed,such as with SHA-256,the hash begins with a number of zero bits.The average work required is exponential in the number of zero bits required and can be verified by executing a single hash.
+
+要在点对点的基础上实现分布式时间戳服务器,我们需要使用一个类似亚当·伯克的哈希[^6]现金那样的工作证明系统,而不是报纸或Usenet新闻组帖子那样的东西.工作证明包括寻找一个哈希值,例如使用SHA-256算法计算的哈希值,这个哈希值以一定数量的0开头,所需的平均工作量是所需要0的位数的指数,可以通过执行单个哈希来验证它.
+
+For our timestamp network,we implement the proof-of-work by incrementing a nonce in the block until a value is found that gives the block's hash the required zero bits.Once the CPU effort has been expended to make it satisfy the proof-of-work,the block cannot be changed without redong the work.As later blocks are chained after it,the work to change the block would include redoing all the blocks after it.
+![](https://github.com/worldofrorrim/worldofrorrim.github.io/blob/master/static/images/proof-of-work.jpg?raw=true)
+
+// TO-DO Translating
+
+![](https://github.com/worldofrorrim/worldofrorrim.github.io/blob/master/static/images/proof-of-work.svg?raw=true)
+To compensate for increasing hardware speed and varying interest in running nodes over time,the proof-of-work difficulty is determined by a moving average targeting an average number of blocks per hour.If they're generated too fast,the difficulty increases.
+
 
 
 ## 5.网络（Network）
