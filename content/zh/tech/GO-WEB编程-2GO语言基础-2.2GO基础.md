@@ -2,7 +2,7 @@
 title = "GO-WEB编程-1.GO语言基础-2.2GO基础"
 date = "2021-03-12T10:50:00+08:00"
 tags = ["GO", "WEB"]
-slug = "golang-hello"
+slug = "golang-base"
 indent = false
 
 +++
