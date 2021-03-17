@@ -76,17 +76,22 @@ The solution we propose begins with a timestamp server. A timestamp server works
 
 To implement a distributed timestamp server on a peer-to-peer basis,we will need to use a proof-of-work system similar to Adam Back's Hashcash [^6],rather than newspaper or Usenet posts.The proof-of-work involves scanning for a value that when hashed,such as with SHA-256,the hash begins with a number of zero bits.The average work required is exponential in the number of zero bits required and can be verified by executing a single hash.
 
-要在点对点的基础上实现分布式时间戳服务器,我们需要使用一个类似亚当·伯克的哈希[^6]现金那样的工作证明系统,而不是报纸或Usenet新闻组帖子那样的东西.工作证明包括寻找一个哈希值,例如使用SHA-256算法计算的哈希值,这个哈希值以一定数量的0开头,所需的平均工作量是所需要0的位数的指数,可以通过执行单个哈希来验证它.
+要在点对点的基础上实现分布式时间戳服务器,我们需要使用一个类似亚当·伯克的哈希[^6]现金那样的工作证明系统,而不是像报纸或Usenet新闻组帖子那样的东西.工作证明包括寻找一个哈希值,例如使用SHA-256算法计算的哈希值,这个哈希值以一定数量的0开头,所需的平均工作量是所需要0的位数的指数,可以通过执行单个哈希来验证它.
 
 For our timestamp network,we implement the proof-of-work by incrementing a nonce in the block until a value is found that gives the block's hash the required zero bits.Once the CPU effort has been expended to make it satisfy the proof-of-work,the block cannot be changed without redong the work.As later blocks are chained after it,the work to change the block would include redoing all the blocks after it.
 ![](https://github.com/worldofrorrim/worldofrorrim.github.io/blob/master/static/images/proof-of-work.jpg?raw=true)
 
-// TO-DO Translating
+在我们的时间戳网络中,我们通过不断地在区块之中增加一个额随机数(Nonce)直到提供给区块的哈希值满足需要的0的位数的值被找到,从而实现工作证明.一旦CPU耗费算力所获得的结果满足工作证明,那么这个区块将不再能被更改,除非重新完成它之前的所有的工作.随着新的区块被不断添加到当前区块的后边,改变当前区块就相当于要重新完成所有气候区块的计算工作.
 
 ![](https://github.com/worldofrorrim/worldofrorrim.github.io/blob/master/static/images/proof-of-work.svg?raw=true)
+
+The proof-of-work alse solves the problem of determining representation in majority decision making. If the majority were based on one-IP-address-one-vote,it could be subverted by anyone able to allocate many IPs. Proof-of-work is essentially one-CPU-one-vote.The majority decision is represented by the longest chain,which has the greatest proof-of-work effort invested in it.If a majority of CPU power is controlled by honest nodes, the honest chain will grow the fastest and outpace any competing chains. To modify a past block, an attacker would have to redo the proof-of-work of the block and all blocks after it and then catch up with and surpass the work of the honest nodes. We will show later that the probability of a slower attacker catching up diminishes exponentially as subsequent blocks are added.
+
+工作证明同时也解决了在大多数决策中,确定代表的问题,即谁能代表大多数做决定的问题.如果"大多数"时基于"一个IP地址一票"的话,那么任何可以分配到很多IP的人都可以颠覆这个系统.工作证明本质上是一个CPU一票。大多数决策由投入了最多工作量的最长链来代表。如果大多数 CPU 算力被诚实的节点所控制，那么诚实链成长最为迅速，其速度会远超其他竞争链。为了更改一个已经产生的区块，攻击者将不得不重新完成那个区块以及所有其后区块的的工作证明，而后还要追上并超过诚实节点的工作。后文我们将展示为什么一个被拖延了的攻击者能够追上的可能性将随着区块的不断增加而指数级降低。
+
 To compensate for increasing hardware speed and varying interest in running nodes over time,the proof-of-work difficulty is determined by a moving average targeting an average number of blocks per hour.If they're generated too fast,the difficulty increases.
 
-
+为了对硬件算力综合的不断增加和随着时间的推移参与节点数量的变化进行应对，工作证明的难度基于平均每小时产生区块数量的动态平均值。如果区块生成得过快了，那么难度将会增加。
 
 ## 5.网络（Network）
 
