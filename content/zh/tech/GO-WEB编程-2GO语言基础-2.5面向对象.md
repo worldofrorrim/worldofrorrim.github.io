@@ -1,6 +1,6 @@
 +++
 title = "GO-WEB编程-1.GO语言基础-2.5 面向对象"
-date = "2021-03-17T17:00-:00+08:00"
+date = "2021-03-17T17:00:00+08:00"
 tags = ["GO", "WEB"]
 slug = "golang-oop"
 indent = false
