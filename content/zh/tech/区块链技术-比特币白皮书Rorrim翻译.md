@@ -97,6 +97,26 @@ To compensate for increasing hardware speed and varying interest in running node
 
 ---
 
+The steps to run the network are as follows:
+
+> 1. New transactions are broadcast to all nodes.
+> 2. Each node collects new transactions into a block.
+> 3. Each node works on finding a difficult proof-of-work for its block.
+> 4. When a node finds a proof-of-work ,it broadcasts the block to all nodes.
+> 5. Nodes accept the block only if all transactions in it are valid and not already spent.
+> 6. Nodes express their acceptance of the block by working on creating the next block in the chain, using the hash of the accepted block as the previous hash.
+
+运行网络的步骤如下:
+
+> 1. 新交易想所有节点广播.
+> 2. 每个节点将收集到的新交易打包到一个区块中.
+> 3. 每个节点开始寻找一个有一定难度的工作证明.
+> 4. 当其中一个节点找到并完成了工作证明,它就向所有节点广播这个区块.
+> 5. 如果这个区块中的所有交易都是有效的,并且不是已经被花费过的交易,那么节点才接受这个区块.
+> 6. 节点通过在创建下一个区块的时候,把被接受的区块的哈希作为新区块的上一个区块的哈希,向网络表示自己接受这个区块.
+
+Nodes always consider the longest chain to be the correct one and will keep working on extending it.If two nodes broadcast different versions of the next block simultaneously, some nodes may receive one or the other first.In that case ,they work on the first one they received,but save the other branch in case it becomes longer.The tie will be broken when the next proof-of-work is found and one branch becomes longer; the nodes that were working on the other branch will then switch to the longer one.
+
 
 
 ## 6.奖励（Incentive）
