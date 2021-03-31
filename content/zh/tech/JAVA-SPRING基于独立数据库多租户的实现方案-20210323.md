@@ -1,5 +1,5 @@
 +++
-title = "多租户实现方案"
+title = "基于spingboot的多租户实现方案"
 date = "2021-03-23T20:56:00+08:00"
 tags = ["多租户","JAVA", "SPRING"]
 slug = "多租户的实现方案"
