@@ -1,0 +1,185 @@
+<!doctype html><html lang=zh-cn><head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#"><meta charset=utf-8><meta name=generator content="Hugo 0.82.0"><meta name=theme-color content="#fff"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=format-detection content="telephone=no, date=no, address=no, email=no"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><title>基于spingboot的多租户实现方案 | Co-oC</title><link rel=stylesheet href=/css/meme.min.css><script src=/js/meme.min.js></script><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel+Decorative:wght@700&display=swap" media=print onload="this.media='all'"><noscript><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel+Decorative:wght@700&display=swap"></noscript><meta name=author content="worldofrorrim"><meta name=description content="多租户的实现方案 1. 常见的多租户实现方案 目前基于多租户的数据库设计方案通常有如下三种：……"><link rel="shortcut icon" href=/favicon.ico type=image/x-icon><link rel=mask-icon href=/icons/safari-pinned-tab.svg color=#2a6df4><link rel=apple-touch-icon sizes=180x180 href=/icons/apple-touch-icon.png><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-title content="Co-oC"><meta name=apple-mobile-web-app-status-bar-style content="black"><meta name=mobile-web-app-capable content="yes"><meta name=application-name content="Co-oC"><meta name=msapplication-starturl content="../../"><meta name=msapplication-TileColor content="#fff"><meta name=msapplication-TileImage content="../../icons/mstile-150x150.png"><link rel=manifest href=/manifest.json><link rel=canonical href=https://worldofrorrim.github.io/tech/%E5%A4%9A%E7%A7%9F%E6%88%B7%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","datePublished":"2021-03-23T20:56:00+08:00","dateModified":"2021-03-31T08:57:33+08:00","url":"https://worldofrorrim.github.io/tech/%E5%A4%9A%E7%A7%9F%E6%88%B7%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/","headline":"基于spingboot的多租户实现方案","description":"多租户的实现方案 1. 常见的多租户实现方案 目前基于多租户的数据库设计方案通常有如下三种：……","inLanguage":"zh-CN","articleSection":"tech","wordCount":2528,"image":["C:%5CUsers%5Cjiaoj%5CDesktop%5Ccurrent%5Cworldofrorrim%5Cstatic%5Cimages%5C15267","C:%5CUsers%5Cjiaoj%5CDesktop%5Ccurrent%5Cworldofrorrim%5Cstatic%5Cimages%5C15265","C:%5CUsers%5Cjiaoj%5CDesktop%5Ccurrent%5Cworldofrorrim%5Cstatic%5Cimages%5C15246"],"author":{"@type":"Person","description":"Viva La Vida","email":"worldofrorrim@gmail.com","image":"https://worldofrorrim.github.io/icons/apple-touch-icon.png","url":"https://worldofrorrim.github.io/","name":"worldofrorrim"},"license":"在保留本文作者及本文链接的前提下，非商业用途随意转载分享。","publisher":{"@type":"Organization","name":"Co-oC","logo":{"@type":"ImageObject","url":"https://worldofrorrim.github.io/icons/apple-touch-icon.png"},"url":"https://worldofrorrim.github.io/"},"mainEntityOfPage":{"@type":"WebSite","@id":"https://worldofrorrim.github.io/"}}</script><meta name=twitter:card content="summary_large_image"><meta name=twitter:site content="@rorrim"><meta name=twitter:creator content="@worldofrorrim"><meta property="og:title" content="基于spingboot的多租户实现方案"><meta property="og:description" content="多租户的实现方案 1. 常见的多租户实现方案 目前基于多租户的数据库设计方案通常有如下三种：……"><meta property="og:url" content="https://worldofrorrim.github.io/tech/%E5%A4%9A%E7%A7%9F%E6%88%B7%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/"><meta property="og:site_name" content="Co-oC"><meta property="og:locale" content="zh"><meta property="og:image" content="C:%5CUsers%5Cjiaoj%5CDesktop%5Ccurrent%5Cworldofrorrim%5Cstatic%5Cimages%5C15267"><meta property="og:type" content="article"><meta property="article:published_time" content="2021-03-23T20:56:00+08:00"><meta property="article:modified_time" content="2021-03-31T08:57:33+08:00"><meta property="article:section" content="tech"><link rel=preconnect href=https://www.google-analytics.com crossorigin><script async src="https://www.googletagmanager.com/gtag/js?id=UA-100434861-1"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','UA-100434861-1')</script><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Lato:wght@700&text=reuixiy&display=swap" media=print onload="this.media='all'"><noscript><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Lato:wght@700&text=reuixiy&display=swap"></noscript></head><body><div class=container><header class=header><div class=header-wrapper><div class="header-inner single"><div class=site-brand><a href=/ class=brand>Co-oC</a></div><nav class=nav><ul class=menu id=menu><li class=menu-item><a href=/life/><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon life"><path d="M301.1 212c4.4 4.4 4.4 11.9.0 16.3l-9.7 9.7c-4.4 4.7-11.9 4.7-16.6.0l-10.5-10.5c-4.4-4.7-4.4-11.9.0-16.6l9.7-9.7c4.4-4.4 11.9-4.4 16.6.0l10.5 10.8zm-30.2-19.7c3-3 3-7.8.0-10.5-2.8-3-7.5-3-10.5.0-2.8 2.8-2.8 7.5.0 10.5 3.1 2.8 7.8 2.8 10.5.0zm-26 5.3c-3 2.8-3 7.5.0 10.2 2.8 3 7.5 3 10.5.0 2.8-2.8 2.8-7.5.0-10.2-3-3-7.7-3-10.5.0zm72.5-13.3c-19.9-14.4-33.8-43.2-11.9-68.1 21.6-24.9 40.7-17.2 59.8.8 11.9 11.3 29.3 24.9 17.2 48.2-12.5 23.5-45.1 33.2-65.1 19.1zm47.7-44.5c-8.9-10-23.3 6.9-15.5 16.1 7.4 9 32.1 2.4 15.5-16.1zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-66.2 42.6c2.5-16.1-20.2-16.6-25.2-25.7-13.6-24.1-27.7-36.8-54.5-30.4 11.6-8 23.5-6.1 23.5-6.1.3-6.4.0-13-9.4-24.9 3.9-12.5.3-22.4.3-22.4 15.5-8.6 26.8-24.4 29.1-43.2 3.6-31-18.8-59.2-49.8-62.8-22.1-2.5-43.7 7.7-54.3 25.7-23.2 40.1 1.4 70.9 22.4 81.4-14.4-1.4-34.3-11.9-40.1-34.3-6.6-25.7 2.8-49.8 8.9-61.4.0.0-4.4-5.8-8-8.9.0.0-13.8.0-24.6 5.3 11.9-15.2 25.2-14.4 25.2-14.4.0-6.4-.6-14.9-3.6-21.6-5.4-11-23.8-12.9-31.7 2.8.1-.2.3-.4.4-.5-5 11.9-1.1 55.9 16.9 87.2-2.5 1.4-9.1 6.1-13 10-21.6 9.7-56.2 60.3-56.2 60.3-28.2 10.8-77.2 50.9-70.6 79.7.3 3 1.4 5.5 3 7.5-2.8 2.2-5.5 5-8.3 8.3-11.9 13.8-5.3 35.2 17.7 24.4 15.8-7.2 29.6-20.2 36.3-30.4.0.0-5.5-5-16.3-4.4 27.7-6.6 34.3-9.4 46.2-9.1 8 3.9 8-34.3 8-34.3.0-14.7-2.2-31-11.1-41.5 12.5 12.2 29.1 32.7 28 60.6-.8 18.3-15.2 23-15.2 23-9.1 16.6-43.2 65.9-30.4 106 0 0-9.7-14.9-10.2-22.1-17.4 19.4-46.5 52.3-24.6 64.5 26.6 14.7 108.8-88.6 126.2-142.3 34.6-20.8 55.4-47.3 63.9-65 22 43.5 95.3 94.5 101.1 59z"/></svg><span class=menu-item-name>生活</span></a></li><li class=menu-item><a href=/tech/><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon tech"><path d="M512 256c0 141.2-114.7 256-256 256C114.8 512 0 397.3.0 256S114.7.0 256 0s256 114.7 256 256zm-32 0c0-123.2-100.3-224-224-224C132.5 32 32 132.5 32 256s100.5 224 224 224 224-100.5 224-224zM160.9 124.6l86.9 37.1-37.1 86.9-86.9-37.1 37.1-86.9zm110 169.1 46.6 94h-14.6l-50-1e2-48.9 1e2h-14l51.1-106.9-22.3-9.4 6-14 68.6 29.1-6 14.3-16.5-7.1zm-11.8-116.3 68.6 29.4-29.4 68.3L230 246l29.1-68.6zm80.3 42.9 54.6 23.1-23.4 54.3-54.3-23.1 23.1-54.3z"/></svg><span class=menu-item-name>技术</span></a></li><li class=menu-item><a href=/about/><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="icon about"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6.0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7.0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4.0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9s28-2.7 40.9-6.9c2.3-.7 4.7-1.1 7.1-1.1 42.9.0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"/></svg><span class=menu-item-name>关于</span></a></li><li class=menu-item><a id=theme-switcher href=#><span class="icon theme-icon-light">🌞</span><span class="icon theme-icon-dark">🌙</span></a></li></ul></nav></div></div><input type=checkbox id=nav-toggle aria-hidden=true>
+<label for=nav-toggle class=nav-toggle></label><label for=nav-toggle class=nav-curtain></label></header><main class="main single" id=main><div class=main-inner><article class="content post h-entry" data-align=justify data-type=tech data-indent=true data-toc-num=true><h1 class="post-title p-name">基于spingboot的多租户实现方案</h1><div class="post-body e-content"><h1 id=多租户的实现方案><a href=#多租户的实现方案 class=anchor-link>#</a>多租户的实现方案</h1><h2 id=1--常见的多租户实现方案><a href=#1--常见的多租户实现方案 class=anchor-link>#</a>1. 常见的多租户实现方案</h2><p style=text-indent:0><span class=drop-cap>目</span>前基于多租户的数据库设计方案通常有如下三种：</p><h3 id=11-独立数据库><a href=#11-独立数据库 class=anchor-link>#</a>1.1 独立数据库</h3><p style=text-indent:0>针对独立数据库的这种方式，首先需要业务层能够支持多数据源的配置，并且为每个租户创建或初始化一个数据库。应用程序和数据库都是独立的实例，因此它不会与任何其他独立实例交互。只为一个租户提供服务，拥有独立的服务、独立的数据库以及独立的请求处理。</p><p><img src=C:%5CUsers%5Cjiaoj%5CDesktop%5Ccurrent%5Cworldofrorrim%5Cstatic%5Cimages%5C15267 alt=image>
+独立数据库：每个租户一个数据库。</p><p><strong>优点</strong>：为不同的租户提供独立的数据库，有助于简化数据模型的扩展设计，满足不同租户的独特需求；如果 出现故障，恢复数据比较简单；</p><p><strong>缺点</strong>： 增多了数据库的安装数量，随之带来维护成本和购置成本的增加</p><p><strong>这种方案与传统的一个客户、一套数据、一套部署类似，差别只在于软件统一部署在运营商那里。由此可见此方案用户数据隔离级别高，安全性好，但是成本较高</strong></p><h3 id=12-独立-schema-共享数据库><a href=#12-独立-schema-共享数据库 class=anchor-link>#</a>1.2 独立 Schema 共享数据库</h3><p style=text-indent:0>共享数据库、独立Schema模式，是将多个或所有租户的数据放在一个数据库服务中，但是为每一个租户建立一个独立的schema。租户间数据彼此逻辑不可见，上层应用程序的实现和独立数据库一样简单。（补充：mysql数据中的schema比较特殊，并不是数据库的下一级，而是等同于数据库。）</p><p><strong>优点</strong>：对于安全性要求较高的租户，是一种选择。提供了一定程度的逻辑数据隔离，但并不是完全隔离；每个数据库可支持更多的租户数量。</p><p><strong>缺点</strong>：如果出现故障，数据恢复比较困难，因为恢复数据库将牵涉到其他租户的数据；如果需要跨租户统计数据，存在一定困难。这种方案是方案一的变种。只需要安装一份数据库服务，通过不同的Schema对不同租户的数据进行隔离。由于数据库服务是共享的，所以成本相对低廉</p><p><strong>这种方案是方案一的变种。只需要安装一份数据库服务，通过不同的Schema对不同租户的数据进行隔离。由于数据库服务是共享的，所以成本相对低廉。</strong></p><h3 id=13-共享数据库且共享数据表><a href=#13-共享数据库且共享数据表 class=anchor-link>#</a>1.3. 共享数据库且共享数据表</h3><p style=text-indent:0>共享数据库、共享数据表：即租户共享同一个Database，同一套数据库表（所有租户的数据都存放在一个数据库 的同一套表中）。在表中增加租户ID等租户标志字段，表明该记录是属于哪个租户的
+<img src=C:%5CUsers%5Cjiaoj%5CDesktop%5Ccurrent%5Cworldofrorrim%5Cstatic%5Cimages%5C15265 alt=image>
+<strong>优点</strong>：所有租户使用同一套数据库，所以成本低廉。</p><p><strong>缺点</strong>：隔离级别低，安全性低，需要在设计开发时加大对安全的开发量，数据备份和恢复困难。</p><p><strong>这种方案和基于传统应用的数据库设计并没有任何区别，但是由于所有租户使用相同的数据库表，所以需要做好对每个租户数据的隔离安全性处理，这就增加了系统设计和数据管理方面的复杂程度。</strong></p><h2 id=2--独立数据库-实现方案><a href=#2--独立数据库-实现方案 class=anchor-link>#</a>2. 独立数据库 实现方案</h2><p style=text-indent:0>独立数据库，即一个租户一个数据库，这种方案的用户数据隔离级别最高，安全性最好，但成本较高。</p><p>技术实现架构设计图
+<img src=C:%5CUsers%5Cjiaoj%5CDesktop%5Ccurrent%5Cworldofrorrim%5Cstatic%5Cimages%5C15246 alt=image></p><p>实现流程</p><ol><li>用户发起请求（请求携带租户信息 tenant）</li><li>请求到应用系统，应用系统拦截器得到当前请求的租户信息，动态切换数据和redis</li><li>在当前租户的数据库或者redis上面进行业务操作</li></ol><p>实现技术难点</p><ol><li>实现 数据库 动态数据源</li><li>实现 redis 动态数据源</li><li>实现 oss 基于租户信息 保存到指定bucket下</li><li>实现 mq 对于多租户支持</li></ol><h3 id=3-msyql-动态数据源-java代码实现><a href=#3-msyql-动态数据源-java代码实现 class=anchor-link>#</a>3. msyql 动态数据源 java代码实现</h3><h4 id=31-基于spring-abstractroutingdatasource-实现多数据源动态切换><a href=#31-基于spring-abstractroutingdatasource-实现多数据源动态切换 class=anchor-link>#</a>3.1 基于spring AbstractRoutingDataSource 实现多数据源动态切换</h4><p style=text-indent:0>oss 和 redis 可以参考mysql的实现，进行动态切换</p><p>DynamicDataSource 类实现</p><div class=highlight><pre class=chroma><code class=language-java data-lang=java><span class=kd>public</span> <span class=kd>class</span> <span class=nc>DynamicDataSource</span> <span class=kd>extends</span> <span class=n>AbstractRoutingDataSource</span> <span class=o>{</span>
+    <span class=cm>/**
+</span><span class=cm>     * 如果不希望数据源在启动配置时就加载好，可以定制这个方法，从任何你希望的地方读取并返回数据源
+</span><span class=cm>     * 比如从数据库、文件、外部接口等读取数据源信息，并最终返回一个DataSource实现类对象即可
+</span><span class=cm>     */</span>
+    <span class=nd>@Override</span>
+    <span class=kd>protected</span> <span class=n>DataSource</span> <span class=nf>determineTargetDataSource</span><span class=o>()</span> <span class=o>{</span>
+        <span class=k>return</span> <span class=kd>super</span><span class=o>.</span><span class=na>determineTargetDataSource</span><span class=o>();</span>
+    <span class=o>}</span>
+
+    <span class=cm>/**
+</span><span class=cm>     * 如果希望所有数据源在启动配置时就加载好，这里通过设置数据源Key值来切换数据，定制这个方法
+</span><span class=cm>     */</span>
+    <span class=nd>@Override</span>
+    <span class=kd>protected</span> <span class=n>Object</span> <span class=nf>determineCurrentLookupKey</span><span class=o>()</span> <span class=o>{</span>
+        <span class=k>return</span> <span class=n>DynamicDataSourceContextHolder</span><span class=o>.</span><span class=na>getDataSourceKey</span><span class=o>();</span>
+    <span class=o>}</span>
+
+    <span class=cm>/**
+</span><span class=cm>     * 设置默认数据源
+</span><span class=cm>     *
+</span><span class=cm>     * @param defaultDataSource
+</span><span class=cm>     */</span>
+    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>setDefaultDataSource</span><span class=o>(</span><span class=n>Object</span> <span class=n>defaultDataSource</span><span class=o>)</span> <span class=o>{</span>
+        <span class=kd>super</span><span class=o>.</span><span class=na>setDefaultTargetDataSource</span><span class=o>(</span><span class=n>defaultDataSource</span><span class=o>);</span>
+    <span class=o>}</span>
+
+    <span class=cm>/**
+</span><span class=cm>     * 设置数据源
+</span><span class=cm>     *
+</span><span class=cm>     * @param dataSources
+</span><span class=cm>     */</span>
+    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>setDataSources</span><span class=o>(</span><span class=n>Map</span><span class=o>&lt;</span><span class=n>Object</span><span class=o>,</span> <span class=n>Object</span><span class=o>&gt;</span> <span class=n>dataSources</span><span class=o>)</span> <span class=o>{</span>
+        <span class=kd>super</span><span class=o>.</span><span class=na>setTargetDataSources</span><span class=o>(</span><span class=n>dataSources</span><span class=o>);</span>
+        <span class=c1>// 将数据源的 key 放到数据源上下文的 key 集合中，用于切换时判断数据源是否有效
+</span><span class=c1></span>        <span class=n>DynamicDataSourceContextHolder</span><span class=o>.</span><span class=na>addDataSourceKeys</span><span class=o>(</span><span class=n>dataSources</span><span class=o>.</span><span class=na>keySet</span><span class=o>());</span>
+    <span class=o>}</span>
+<span class=o>}</span>
+</code></pre></div><p>DynamicDataSourceContextHolder 类实现</p><pre><code>public class DynamicDataSourceContextHolder {
+    private static final ThreadLocal&lt;String&gt; contextHolder = new ThreadLocal&lt;String&gt;() {
+        /**
+         * 将 master 数据源的 key作为默认数据源的 key
+         */
+        @Override
+        protected String initialValue() {
+            return &quot;master&quot;;
+        }
+    };
+    /**
+     * 数据源的 key集合，用于切换时判断数据源是否存在
+     */
+    public static List&lt;Object&gt; dataSourceKeys = new ArrayList&lt;&gt;();
+
+    /**
+     * 获取数据源
+     *
+     * @return
+     */
+    public static String getDataSourceKey() {
+        return contextHolder.get() == null ? MybatisPlusConfig.DEFAULT_DATASOURCKEY : contextHolder.get();
+    }
+
+    /**
+     * 切换数据源
+     *
+     * @param key
+     */
+    public static void setDataSourceKey(String key) {
+        contextHolder.set(key);
+    }
+
+    /**
+     * 重置数据源
+     */
+    public static void clearDataSourceKey() {
+        contextHolder.remove();
+    }
+
+    /**
+     * 判断是否包含数据源
+     *
+     * @param key 数据源key
+     * @return
+     */
+    public static boolean containDataSourceKey(String key) {
+        return dataSourceKeys.contains(key);
+    }
+
+    /**
+     * 添加数据源keys
+     *
+     * @param keys
+     * @return
+     */
+    public static boolean addDataSourceKeys(Collection&lt;? extends Object&gt; keys) {
+        return dataSourceKeys.addAll(keys);
+    }
+}
+</code></pre><p>Mybatis 数据源配置</p><div class=highlight><pre class=chroma><code class=language-java data-lang=java> <span class=nd>@Bean</span><span class=o>(</span><span class=s>&#34;dynamicDataSource&#34;</span><span class=o>)</span>
+    <span class=kd>public</span> <span class=n>DataSource</span> <span class=nf>dynamicDataSource</span><span class=o>()</span> <span class=o>{</span>
+        <span class=n>DynamicDataSource</span> <span class=n>dynamicDataSource</span> <span class=o>=</span> <span class=k>new</span> <span class=n>DynamicDataSource</span><span class=o>();</span>
+        <span class=n>Map</span><span class=o>&lt;</span><span class=n>Object</span><span class=o>,</span> <span class=n>Object</span><span class=o>&gt;</span> <span class=n>dataSourceMap</span> <span class=o>=</span> <span class=k>new</span> <span class=n>HashMap</span><span class=o>&lt;&gt;();</span>
+        <span class=n>List</span><span class=o>&lt;</span><span class=n>DynamicDataSourceProperty</span><span class=o>.</span><span class=na>DynamicTenantDataSourceProperty</span><span class=o>&gt;</span> <span class=n>datasources</span> <span class=o>=</span> <span class=n>dynamicDataSourceProperty</span><span class=o>.</span><span class=na>getDatasources</span><span class=o>();</span>
+        <span class=n>String</span> <span class=n>defaultTennatId</span> <span class=o>=</span> <span class=kc>null</span><span class=o>;</span>
+        <span class=k>if</span> <span class=o>(!</span><span class=n>datasources</span><span class=o>.</span><span class=na>isEmpty</span><span class=o>())</span> <span class=o>{</span>
+            <span class=k>for</span> <span class=o>(</span><span class=n>DynamicDataSourceProperty</span><span class=o>.</span><span class=na>DynamicTenantDataSourceProperty</span> <span class=n>dataSourceProperty</span> <span class=o>:</span>
+                    <span class=n>datasources</span><span class=o>)</span> <span class=o>{</span>
+                <span class=n>String</span> <span class=n>tenantname</span> <span class=o>=</span> <span class=n>dataSourceProperty</span><span class=o>.</span><span class=na>getTenantname</span><span class=o>();</span>
+                <span class=n>String</span> <span class=n>tenantId</span> <span class=o>=</span> <span class=n>dataSourceProperty</span><span class=o>.</span><span class=na>getTenantId</span><span class=o>();</span>
+                <span class=n>Boolean</span> <span class=n>isDefault</span> <span class=o>=</span> <span class=n>dataSourceProperty</span><span class=o>.</span><span class=na>getIsDefault</span><span class=o>();</span>
+                <span class=k>if</span> <span class=o>(</span><span class=n>isDefault</span> <span class=o>!=</span> <span class=kc>null</span> <span class=o>&amp;&amp;</span> <span class=n>isDefault</span><span class=o>)</span> <span class=o>{</span>
+                    <span class=n>DEFAULT_TENANTID</span> <span class=o>=</span> <span class=n>tenantId</span><span class=o>;</span>
+                    <span class=n>DEFAULT_DATASOURCKEY</span> <span class=o>=</span> <span class=n>DEFAULT_TENANTID</span> <span class=o>+</span> <span class=n>DATASOURCKEY_SEPARATOR</span> <span class=o>+</span> <span class=n>DEFAULT_DATASOURCENAME</span><span class=o>;</span>
+                <span class=o>}</span>
+
+                <span class=n>List</span><span class=o>&lt;</span><span class=n>DynamicDataSourceProperty</span><span class=o>.</span><span class=na>Source</span><span class=o>&gt;</span> <span class=n>sources</span> <span class=o>=</span> <span class=n>dataSourceProperty</span><span class=o>.</span><span class=na>getSources</span><span class=o>();</span>
+                <span class=k>for</span> <span class=o>(</span><span class=n>DynamicDataSourceProperty</span><span class=o>.</span><span class=na>Source</span> <span class=n>source</span> <span class=o>:</span> <span class=n>sources</span><span class=o>)</span> <span class=o>{</span>
+                    <span class=n>HikariDataSource</span> <span class=n>dataSource</span> <span class=o>=</span> <span class=k>new</span> <span class=n>HikariDataSource</span><span class=o>();</span>
+                    <span class=n>String</span> <span class=n>driverClassName</span> <span class=o>=</span> <span class=n>source</span><span class=o>.</span><span class=na>getDriverClassName</span><span class=o>();</span>
+                    <span class=n>String</span> <span class=n>jdbcUrl</span> <span class=o>=</span> <span class=n>source</span><span class=o>.</span><span class=na>getJdbcUrl</span><span class=o>();</span>
+                    <span class=n>String</span> <span class=n>username</span> <span class=o>=</span> <span class=n>source</span><span class=o>.</span><span class=na>getUsername</span><span class=o>();</span>
+                    <span class=n>String</span> <span class=n>password</span> <span class=o>=</span> <span class=n>source</span><span class=o>.</span><span class=na>getPassword</span><span class=o>();</span>
+                    <span class=n>String</span> <span class=n>sourceName</span> <span class=o>=</span> <span class=n>source</span><span class=o>.</span><span class=na>getName</span><span class=o>();</span>
+
+                    <span class=n>dataSource</span><span class=o>.</span><span class=na>setDriverClassName</span><span class=o>(</span><span class=n>driverClassName</span><span class=o>);</span>
+                    <span class=n>dataSource</span><span class=o>.</span><span class=na>setJdbcUrl</span><span class=o>(</span><span class=n>jdbcUrl</span><span class=o>);</span>
+                    <span class=n>dataSource</span><span class=o>.</span><span class=na>setUsername</span><span class=o>(</span><span class=n>username</span><span class=o>);</span>
+                    <span class=n>dataSource</span><span class=o>.</span><span class=na>setPassword</span><span class=o>(</span><span class=n>password</span><span class=o>);</span>
+                    <span class=n>log</span><span class=o>.</span><span class=na>info</span><span class=o>(</span><span class=s>&#34; datasource  key is &#34;</span> <span class=o>+</span> <span class=n>tenantId</span> <span class=o>+</span> <span class=n>DATASOURCKEY_SEPARATOR</span> <span class=o>+</span> <span class=n>sourceName</span> <span class=o>+</span> <span class=s>&#34;，name is {}&#34;</span><span class=o>,</span> <span class=n>tenantname</span><span class=o>);</span>
+                    <span class=n>dataSourceMap</span><span class=o>.</span><span class=na>put</span><span class=o>(</span><span class=n>tenantId</span> <span class=o>+</span> <span class=n>DATASOURCKEY_SEPARATOR</span> <span class=o>+</span> <span class=n>sourceName</span><span class=o>,</span> <span class=n>dataSource</span><span class=o>);</span>
+
+                    <span class=n>TENANTLIST</span><span class=o>.</span><span class=na>add</span><span class=o>(</span><span class=n>Tenant</span><span class=o>.</span><span class=na>builder</span><span class=o>().</span><span class=na>tenantId</span><span class=o>(</span><span class=n>tenantId</span><span class=o>).</span><span class=na>tenantName</span><span class=o>(</span><span class=n>tenantname</span><span class=o>).</span><span class=na>isDefault</span><span class=o>(</span><span class=n>isDefault</span><span class=o>).</span><span class=na>build</span><span class=o>());</span>
+                <span class=o>}</span>
+
+            <span class=o>}</span>
+        <span class=o>}</span>
+
+        <span class=n>log</span><span class=o>.</span><span class=na>info</span><span class=o>(</span><span class=s>&#34;datasource size : {}&#34;</span><span class=o>,</span> <span class=n>dataSourceMap</span><span class=o>.</span><span class=na>size</span><span class=o>());</span>
+        <span class=n>DataSource</span> <span class=n>defaultDataSource</span> <span class=o>=</span> <span class=o>(</span><span class=n>DataSource</span><span class=o>)</span> <span class=n>dataSourceMap</span><span class=o>.</span><span class=na>get</span><span class=o>(</span><span class=n>DEFAULT_DATASOURCKEY</span><span class=o>);</span>
+        <span class=c1>// 将 master 数据源作为默认指定的数据源
+</span><span class=c1></span>        <span class=n>dynamicDataSource</span><span class=o>.</span><span class=na>setDefaultDataSource</span><span class=o>(</span><span class=n>defaultDataSource</span><span class=o>);</span>
+        <span class=c1>// 将 master 和 slave 数据源作为指定的数据源
+</span><span class=c1></span>        <span class=n>dynamicDataSource</span><span class=o>.</span><span class=na>setDataSources</span><span class=o>(</span><span class=n>dataSourceMap</span><span class=o>);</span>
+        <span class=k>return</span> <span class=n>dynamicDataSource</span><span class=o>;</span>
+    <span class=o>}</span>
+</code></pre></div><h3 id=4-mq-在多租户环境的处理><a href=#4-mq-在多租户环境的处理 class=anchor-link>#</a>4 MQ 在多租户环境的处理</h3><ol><li>通过MQ 数据区分来表示来自于哪个租户，处理数据的时候 根据租户的id切换到指定数据库进行业务处理，或者切换到指定的redis进行处理</li></ol><pre><code>
+@Service
+public class LoginMessageConsumerListener implements ChannelAwareMessageListener {
+
+    @Autowired
+    SysAccountService accountService;
+
+    @Override
+    public void onMessage(Message message, Channel channel) throws Exception {
+        byte[] body = message.getBody();
+        System.out.println(Thread.currentThread().getName() + &quot; login 收到消息：&quot; + new String(body, Charset.forName(&quot;utf-8&quot;)));
+        //获取租户信息
+        String s = new String(body, Charset.forName(&quot;utf-8&quot;));
+        Map&lt;String, Object&gt; map = JsonsUtil.toMap(s);
+        String tenant = (String) map.get(&quot;tenant&quot;);
+        String data = (String) map.get(&quot;data&quot;);
+
+        //切换数据源
+        TenantContextHolder.setCurrentTenant(tenant);
+        DynamicDataSourceContextHolder.setDataSourceKey(tenant + &quot;-master&quot;);
+
+
+        //做一些 业务操作
+        SysAccount user = accountService.getOne(Wrappers.&lt;SysAccount&gt;lambdaQuery().eq(SysAccount::getUsername, &quot;test&quot;));
+        System.out.println(&quot;用户名：&quot; + user.getUsername() + &quot;, 用户id:&quot; + user.getAccountId().toString());
+
+        //ack
+        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+
+    }
+}
+</code></pre><h2 id=5-统一用户多租户改造遇到的问题><a href=#5-统一用户多租户改造遇到的问题 class=anchor-link>#</a>5 统一用户多租户改造遇到的问题</h2><ul><li><ol><li>页面跳转需要手动传递租户id
+由于统一用户采用 header 携带 租户信息给后台接口，有些情况下前端不能携带header信息
+比如用户单点登录 跳转到另一个系统，header无法携带租户id，那么就需要手动传递租户信息 ,若采用基于二级域名做切换（泛域名解析）则不存在此问题。</li></ol></li><li><ol start=2><li>定时任务需要遍历所有的租户数据，每个租户数据库执行一次</li></ol></li><li><ol start=3><li>多线程环境或者线程池 中需要手动设置当前租户是谁，才能切换到指定数据库</li></ol></li><li><ol start=4><li>提供外部接口，调用接口需要指定请求的租户是谁，否则调用的是默认租户</li></ol></li><li><pre><code>5.跨租户进行数据统计，比如统计所有租户的用户数量等，需要一个数据库一个数据库的统计
+</code></pre></li><li><ol start=6><li>性能方面，由于每次处理请求需要切换指定租户的数据源，性能上会有一定的损耗， 在租户多的情况下待整体性能下降</li></ol></li><li><ol start=7><li>技术上 是基于spingboot的 AbstractRoutingDataSource，所以得依赖spring</li></ol></li></ul></div></article><footer class=minimal-footer><div class=post-tag><a href=/tags/%E5%A4%9A%E7%A7%9F%E6%88%B7/ rel=tag class=post-tag-link>#多租户</a> <a href=/tags/java/ rel=tag class=post-tag-link>#java</a> <a href=/tags/spring/ rel=tag class=post-tag-link>#spring</a></div><div class=post-category><a href=/tech/ class="post-category-link active">tech</a> | <a href=/life/ class=post-category-link>life</a></div></footer></div></main></div><script>'serviceWorker'in navigator&&window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js')})</script><script src=/js/medium-zoom.min.js></script><script>mediumZoom(document.querySelectorAll('div.post-body img'),{background:'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'})</script></body></html>
